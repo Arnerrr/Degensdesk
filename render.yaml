@@ -1,0 +1,18 @@
+# Render Blueprint: https://render.com/docs/blueprint-spec
+# Every push to the connected branch redeploys the site automatically.
+services:
+  - type: web
+    name: degensdesk
+    runtime: node
+    plan: free
+    buildCommand: npm ci --include=dev && npm run typecheck && npm test
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: CACHE_TTL_SECONDS
+        value: "60"
+      - key: GOPLUS_ACCESS_TOKEN
+        sync: false

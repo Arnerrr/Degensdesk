@@ -71,6 +71,16 @@ npm test
 npm run typecheck
 ```
 
+## Deploying
+
+The site is set up to run on [Render](https://render.com) using `render.yaml`:
+
+1. In Render, choose **New → Blueprint** and select this repository and the branch to deploy.
+2. Render installs the app, runs the typecheck and tests, and starts the server. If either check fails, the deploy stops and the site that is already live stays up.
+3. Every push to that branch redeploys the site automatically.
+
+Custom domain: in the Render service, open **Settings → Custom Domains** and add the domain. Then create the DNS records Render shows you at your domain registrar. Render issues the HTTPS certificate automatically.
+
 ## Roadmap
 
 - Trading: wallet connect and swaps through Jupiter (Solana) or 0x/1inch (EVM)
