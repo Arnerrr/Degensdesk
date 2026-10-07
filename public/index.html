@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Degensdesk</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="brand">Degens<span>desk</span></div>
+      <p class="tagline">Rug checks, dev bags and holder concentration from multiple scanners — in one place.</p>
+    </header>
+
+    <main>
+      <form id="scan-form" class="search" autocomplete="off">
+        <select id="chain" aria-label="Chain">
+          <option value="">Auto-detect</option>
+          <option value="solana">Solana</option>
+          <option value="ethereum">Ethereum</option>
+          <option value="base">Base</option>
+          <option value="bsc">BSC</option>
+        </select>
+        <input id="address" placeholder="Paste a token address…" spellcheck="false" required />
+        <button type="submit">Scan</button>
+      </form>
+
+      <section id="result" aria-live="polite"></section>
+
+      <section class="feed">
+        <div class="feed-head">
+          <h2>Fresh launches</h2>
+          <button id="refresh-feed" class="ghost" type="button">Refresh</button>
+        </div>
+        <div id="feed" class="feed-list"><p class="muted">Loading newest tokens…</p></div>
+      </section>
+    </main>
+
+    <footer>
+      Data: DexScreener · RugCheck · GoPlus. Not financial advice — a clean scan doesn't mean a token is safe.
+    </footer>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
