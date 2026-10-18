@@ -1,0 +1,685 @@
+<title>Reisbrochure Egypte</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Reisbrochure Egypte: ligging tegenover België, tijdzones en tijdsverschil, seizoenen en bezienswaardigheden met kostprijs voor een gezin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: brochure in lange kolom; elke rubriek is een band met een smalle tekstkolom en brede kaarten/tabellen. */
+:root {
+  --bg: #f4f5f2;          /* kalksteen */
+  --surface: #ffffff;
+  --ink: #17233a;         /* nachtblauw */
+  --muted: #59647a;
+  --line: #d9dde3;
+  --lapis: #1f4fa3;       /* lapis lazuli */
+  --faience: #0f8a83;     /* egyptisch faience-turkoois */
+  --gold: #b9811a;        /* goud van de farao's */
+  --gold-soft: #f6ead2;
+  --lapis-soft: #e3ebf8;
+  --faience-soft: #dcf1ee;
+  --warn: #b5452c;
+  --warn-soft: #f8e1da;
+  --hero-1: #12234a;
+  --hero-2: #1f4fa3;
+  --hero-ink: #f6f2e8;
+  --f-display: "Marcellus", "Times New Roman", Georgia, serif;
+  --f-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1522; --surface: #172033; --ink: #e8ecf4; --muted: #9aa5ba; --line: #2a3550;
+    --lapis: #7ea6f0; --faience: #4cc9bf; --gold: #e2b25a; --gold-soft: #3a2f1a;
+    --lapis-soft: #1c2c4c; --faience-soft: #143633; --warn: #f08a6f; --warn-soft: #43231b;
+    --hero-1: #0b1430; --hero-2: #1a3a7a; --hero-ink: #f6f2e8;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1522; --surface: #172033; --ink: #e8ecf4; --muted: #9aa5ba; --line: #2a3550;
+  --lapis: #7ea6f0; --faience: #4cc9bf; --gold: #e2b25a; --gold-soft: #3a2f1a;
+  --lapis-soft: #1c2c4c; --faience-soft: #143633; --warn: #f08a6f; --warn-soft: #43231b;
+  --hero-1: #0b1430; --hero-2: #1a3a7a; --hero-ink: #f6f2e8;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--f-body); font-size: 16px; line-height: 1.6;
+}
+h1, h2, h3 { font-family: var(--f-display); font-weight: 400; text-wrap: balance; line-height: 1.15; margin: 0; }
+h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
+h3 { font-size: 1.3rem; }
+p { margin: 0; max-width: 68ch; }
+a { color: var(--lapis); }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.mono, .num { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.eyebrow { font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--gold); }
+.lead { font-size: 1.12rem; color: var(--muted); }
+.stack { display: flex; flex-direction: column; gap: 16px; }
+
+/* Hero */
+.hero { background: linear-gradient(140deg, var(--hero-1), var(--hero-2)); color: var(--hero-ink); }
+.hero .wrap { padding-block: 56px 40px; display: grid; gap: 28px; }
+.hero h1 { font-size: clamp(3.2rem, 11vw, 7rem); letter-spacing: .02em; }
+.hero .eyebrow { color: #e9c77c; }
+.hero p { color: #d7deec; font-size: 1.15rem; }
+.cartouche { display: inline-flex; align-items: center; gap: 10px; border: 2px solid #e9c77c; border-radius: 999px; padding: 6px 18px; font-family: var(--f-display); font-size: 1.05rem; color: #f3dfaf; width: fit-content; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.18); border-radius: 12px; overflow: hidden; }
+.facts div { background: rgba(10,20,45,.55); padding: 14px 16px; }
+.facts dt { font-size: .72rem; text-transform: uppercase; letter-spacing: .12em; color: #b9c4da; }
+.facts dd { margin: 2px 0 0; font-size: 1.05rem; font-weight: 600; color: #fff; }
+
+nav.toc { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--surface); border-bottom: 1px solid var(--line); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface); }
+nav.toc .wrap { display: flex; gap: 6px; overflow-x: auto; padding-block: 10px; scrollbar-width: none; }
+nav.toc a { white-space: nowrap; text-decoration: none; color: var(--ink); font-weight: 500; font-size: .92rem; padding: 6px 12px; border-radius: 999px; }
+nav.toc a:hover { background: var(--lapis-soft); color: var(--lapis); }
+
+section.band { padding-block: 64px; border-bottom: 1px solid var(--line); }
+section.band > .wrap { display: flex; flex-direction: column; gap: 28px; }
+.head { display: flex; flex-direction: column; gap: 10px; }
+
+.grid2 { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+@media (max-width: 820px) { .grid2 { grid-template-columns: minmax(0, 1fr); } }
+
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; min-width: 0; }
+.map svg { width: 100%; height: auto; display: block; }
+.map figcaption { font-size: .82rem; color: var(--muted); margin-top: 8px; }
+
+.compare { width: 100%; border-collapse: collapse; font-size: .95rem; }
+.compare th, .compare td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.compare thead th { font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.compare td:first-child { color: var(--muted); }
+.tablebox { overflow-x: auto; }
+
+/* Tijd */
+.clocks { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.clock { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 4px; }
+.clock .place { font-weight: 600; }
+.clock .time { font-family: var(--f-mono); font-size: clamp(2.2rem, 6vw, 3rem); font-variant-numeric: tabular-nums; line-height: 1.1; }
+.clock .zone { font-size: .88rem; color: var(--muted); }
+.clock.diff { background: var(--gold-soft); border-color: transparent; }
+.clock.diff .time { color: var(--gold); }
+
+.timeline { display: flex; flex-direction: column; gap: 10px; }
+.tl-controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.tl-controls button { font: inherit; font-size: .9rem; border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 6px 14px; border-radius: 999px; cursor: pointer; }
+.tl-controls button[aria-pressed="true"] { background: var(--lapis); color: var(--surface); border-color: var(--lapis); }
+.tl-bar { display: flex; height: 44px; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); }
+.tl-seg { display: flex; align-items: center; justify-content: center; font-size: .78rem; font-weight: 600; min-width: 0; overflow: hidden; white-space: nowrap; }
+.d0 { background: var(--faience-soft); color: var(--faience); }
+.d1 { background: var(--lapis-soft); color: var(--lapis); }
+.d2 { background: var(--warn-soft); color: var(--warn); }
+.tl-months { display: grid; grid-template-columns: repeat(12, 1fr); font-size: .72rem; color: var(--muted); text-align: center; }
+.legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: .85rem; color: var(--muted); }
+.legend span::before { content: ""; display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.legend .l0::before { background: var(--faience); }
+.legend .l1::before { background: var(--lapis); }
+.legend .l2::before { background: var(--warn); }
+.changes { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0; }
+.changes li { display: grid; grid-template-columns: 130px minmax(0, 1fr) auto; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: .93rem; align-items: baseline; }
+.changes .num { color: var(--muted); }
+@media (max-width: 520px) { .changes li { grid-template-columns: minmax(0, 1fr) auto; } .changes li .num { grid-column: 1 / -1; } }
+
+.pill { display: inline-block; font-size: .75rem; font-weight: 600; padding: 2px 10px; border-radius: 999px; white-space: nowrap; }
+
+.explain { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+.explain article { display: flex; flex-direction: column; gap: 8px; }
+.explain h3 { font-size: 1.15rem; }
+.explain p { color: var(--muted); font-size: .97rem; }
+
+.example { border-left: 3px solid var(--gold); padding: 4px 0 4px 16px; }
+.example table { border-collapse: collapse; font-size: .95rem; margin-top: 6px; }
+.example td { padding: 3px 18px 3px 0; }
+
+/* Klimaat */
+.climate { width: 100%; border-collapse: collapse; font-size: .93rem; min-width: 720px; }
+.climate th, .climate td { padding: 9px 8px; border-bottom: 1px solid var(--line); text-align: right; font-variant-numeric: tabular-nums; }
+.climate th:first-child, .climate td:first-child, .climate td:last-child, .climate th:last-child { text-align: left; }
+.climate thead th { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.climate td.num { font-family: var(--f-mono); }
+.climate .hot { color: var(--warn); font-weight: 500; }
+.ok { background: var(--faience-soft); color: var(--faience); }
+.mid { background: var(--gold-soft); color: var(--gold); }
+.bad { background: var(--warn-soft); color: var(--warn); }
+.hol { font-size: .8rem; color: var(--muted); }
+
+/* Bezienswaardigheden */
+.calc { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; align-items: end; }
+.calc label { display: flex; flex-direction: column; gap: 4px; font-size: .82rem; color: var(--muted); font-weight: 500; }
+.calc input { font: inherit; font-family: var(--f-mono); font-size: 1rem; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--ink); width: 100%; }
+.total { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: baseline; justify-content: space-between; background: var(--ink); color: var(--bg); border-radius: 14px; padding: 18px 20px; }
+.total .big { font-family: var(--f-mono); font-size: clamp(1.6rem, 5vw, 2.2rem); font-variant-numeric: tabular-nums; }
+.total small { opacity: .75; }
+
+.region { display: flex; flex-direction: column; gap: 14px; }
+.region h3 { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.region h3 span { font-family: var(--f-body); font-size: .85rem; color: var(--muted); }
+.sights { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+@media (max-width: 400px) { .sights { grid-template-columns: minmax(0, 1fr); } }
+.sight { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.sight.on { border-color: var(--lapis); box-shadow: 0 0 0 1px var(--lapis); }
+.sight header { display: flex; justify-content: space-between; gap: 10px; align-items: start; }
+.sight h4 { margin: 0; font-size: 1.05rem; font-weight: 600; line-height: 1.3; }
+.sight p { font-size: .92rem; color: var(--muted); }
+.sight .add { display: flex; align-items: center; gap: 6px; font-size: .8rem; color: var(--muted); white-space: nowrap; cursor: pointer; }
+.sight .add input { width: 18px; height: 18px; accent-color: var(--lapis); }
+.prices { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; font-size: .85rem; border-top: 1px dashed var(--line); padding-top: 10px; }
+.prices dt { color: var(--muted); }
+.prices dd { margin: 0; text-align: right; font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.family { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); }
+.family span:first-child { font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); font-weight: 600; }
+.family strong { font-family: var(--f-mono); font-size: 1.25rem; color: var(--lapis); font-variant-numeric: tabular-nums; }
+.family em { font-style: normal; font-family: var(--f-mono); font-size: .8rem; color: var(--muted); display: block; text-align: right; }
+.tag { font-size: .72rem; color: var(--gold); font-weight: 600; text-transform: uppercase; letter-spacing: .1em; }
+
+.note { font-size: .88rem; color: var(--muted); background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; }
+
+/* Praktisch */
+.practical { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px 28px; }
+.practical article { display: flex; flex-direction: column; gap: 6px; }
+.practical h3 { font-size: 1.1rem; }
+.practical p { font-size: .95rem; color: var(--muted); }
+
+footer { padding-block: 36px 48px; font-size: .85rem; color: var(--muted); }
+footer .wrap { display: flex; flex-direction: column; gap: 8px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .colon { animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: .25; } }
+}
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="cartouche">𓂀 Reisbrochure</span>
+    <div class="stack">
+      <span class="eyebrow">Arabische Republiek Egypte · Misr</span>
+      <h1>Egypte</h1>
+      <p>Piramiden, tempels langs de Nijl en het koraal van de Rode Zee, op een vlucht van vier en een half uur van Brussel. Deze brochure helpt je gezin een reis plannen: waar Egypte ligt, hoe laat het er is, wanneer je best gaat en wat de grote bezienswaardigheden kosten.</p>
+    </div>
+    <dl class="facts">
+      <div><dt>Hoofdstad</dt><dd>Caïro</dd></div>
+      <div><dt>Vliegtijd</dt><dd>± 4u30 rechtstreeks</dd></div>
+      <div><dt>Tijdsverschil</dt><dd id="factDiff">+1 uur</dd></div>
+      <div><dt>Munt</dt><dd>Egyptisch pond (EGP)</dd></div>
+      <div><dt>Taal</dt><dd>Arabisch</dd></div>
+      <div><dt>Beste reistijd</dt><dd>oktober – april</dd></div>
+    </dl>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Inhoud">
+  <div class="wrap">
+    <a href="#situering">Situering</a>
+    <a href="#tijdzone">Tijdzone &amp; tijdsverschil</a>
+    <a href="#seizoen">Seizoenen</a>
+    <a href="#bezienswaardigheden">Bezienswaardigheden &amp; kosten</a>
+    <a href="#praktisch">Praktisch</a>
+  </div>
+</nav>
+
+<main>
+<!-- SITUERING -->
+<section class="band" id="situering">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">1 · Situering</span>
+      <h2>Waar ligt Egypte tegenover België?</h2>
+      <p class="lead">Egypte ligt in de noordoostelijke hoek van Afrika, ongeveer 3.200 km in vogelvlucht ten zuidoosten van Brussel. De Middellandse Zee ligt ertussen.</p>
+    </div>
+    <div class="grid2">
+      <figure class="panel map" style="margin:0">
+        <svg viewBox="0 0 580 470" role="img" aria-labelledby="mapTitle">
+          <title id="mapTitle">Schematische kaart met België, de Middellandse Zee en Egypte, verbonden door de vliegroute Brussel–Caïro</title>
+          <rect x="0" y="0" width="580" height="470" fill="var(--lapis-soft)"/>
+          <!-- breedtegraden: y = (56 - lat) * 12 ; lengtegraden: x = (lon + 5) * 12 -->
+          <g stroke="var(--line)" stroke-width="1" fill="none">
+            <line x1="0" y1="72" x2="580" y2="72"/>
+            <line x1="0" y1="192" x2="580" y2="192"/>
+            <line x1="0" y1="312" x2="580" y2="312"/>
+            <line x1="0" y1="432" x2="580" y2="432"/>
+          </g>
+          <g font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--muted)">
+            <text x="6" y="68">50°N</text><text x="6" y="188">40°N</text><text x="6" y="308">30°N</text><text x="6" y="428">20°N</text>
+          </g>
+          <!-- Europese kust (schematisch) -->
+          <polyline fill="none" stroke="var(--muted)" stroke-width="1.6" stroke-linejoin="round" points="0,240 54,212 66,186 98,168 118,152 150,146 168,139 186,156 204,172 247,216 258,198 282,191 252,174 208,127 223,125 294,170 312,204 335,234 344,216 372,182 377,192 386,228 428,229 492,230 491,246 486,265 478,287 470,296"/>
+          <!-- Noord-Afrikaanse kust (schematisch) -->
+          <polyline fill="none" stroke="var(--muted)" stroke-width="1.6" stroke-linejoin="round" points="0,244 96,230 182,228 188,242 180,265 218,277 246,294 300,306 300,287 336,281 360,293"/>
+          <!-- België -->
+          <polygon fill="var(--gold)" stroke="var(--gold)" stroke-width="1.2" points="91,59 100,56 111,56 120,54 130,58 128,63 137,68 130,77 118,72 110,72 95,64"/>
+          <!-- Egypte (vasteland + Sinaï) -->
+          <g fill="var(--faience)" fill-opacity=".3" stroke="var(--faience)" stroke-width="1.4" stroke-linejoin="round">
+            <polygon points="360,293 419,298 448,296 450,313 466,346 486,385 503,408 360,408"/>
+            <polygon points="448,296 470,296 479,318 472,338 450,313"/>
+          </g>
+          <!-- vliegroute -->
+          <path d="M112 62 Q 330 120 435 312" fill="none" stroke="var(--lapis)" stroke-width="2.2" stroke-dasharray="7 6"/>
+          <g fill="var(--ink)" font-family="Figtree, sans-serif">
+            <circle cx="112" cy="62" r="4.5"/>
+            <text x="142" y="52" font-size="14" font-weight="700">Brussel</text>
+            <text x="142" y="66" font-size="11" fill="var(--muted)">50,8°N · 4,4°O</text>
+            <circle cx="435" cy="312" r="4.5"/>
+            <text x="354" y="314" font-size="14" font-weight="700" text-anchor="end">Caïro</text>
+            <text x="354" y="328" font-size="11" fill="var(--muted)" text-anchor="end">30,0°N · 31,2°O</text>
+            <circle cx="452" cy="364" r="3.5"/>
+            <text x="445" y="368" font-size="12" text-anchor="end">Luxor</text>
+            <circle cx="455" cy="383" r="3.5"/>
+            <text x="448" y="387" font-size="12" text-anchor="end">Aswan</text>
+            <circle cx="466" cy="345" r="3.5"/>
+            <text x="476" y="356" font-size="12">Hurghada</text>
+            <circle cx="472" cy="337" r="3.5"/>
+            <text x="484" y="332" font-size="12">Sharm el-Sheikh</text>
+            <text x="230" y="258" font-size="13" font-style="italic" fill="var(--lapis)">Middellandse Zee</text>
+            <text x="492" y="362" font-size="11" font-style="italic" fill="var(--lapis)" transform="rotate(62 492 362)">Rode Zee</text>
+            <text x="20" y="110" font-size="12" letter-spacing="3" fill="var(--muted)">EUROPA</text>
+            <text x="180" y="380" font-size="12" letter-spacing="3" fill="var(--muted)">AFRIKA</text>
+            <text x="150" y="104" font-size="12" font-weight="600" fill="var(--lapis)">± 3.200 km</text>
+            <text x="150" y="119" font-size="11" fill="var(--lapis)">± 4u30 vliegen</text>
+          </g>
+        </svg>
+        <figcaption>Schematische kaart (vereenvoudigde kustlijnen). Elke grijze lijn is 10 breedtegraden: Caïro ligt zo'n 21 graden zuidelijker dan Brussel.</figcaption>
+      </figure>
+
+      <div class="stack">
+        <div class="panel tablebox">
+          <table class="compare">
+            <thead><tr><th></th><th>België</th><th>Egypte</th></tr></thead>
+            <tbody>
+              <tr><td>Werelddeel</td><td>West-Europa</td><td>Noordoost-Afrika (Sinaï in Azië)</td></tr>
+              <tr><td>Oppervlakte</td><td class="num">30.689 km²</td><td class="num">± 1.001.450 km²</td></tr>
+              <tr><td>Verhouding</td><td colspan="2">Egypte is ongeveer <strong>33 keer</strong> zo groot als België</td></tr>
+              <tr><td>Inwoners</td><td class="num">± 11,8 miljoen</td><td class="num">± 110 miljoen</td></tr>
+              <tr><td>Hoofdstad</td><td>Brussel</td><td>Caïro (± 22 miljoen in de regio)</td></tr>
+              <tr><td>Breedteligging</td><td class="num">49,5° – 51,5° N</td><td class="num">22° – 31,7° N</td></tr>
+              <tr><td>Lengteligging</td><td class="num">2,5° – 6,4° O</td><td class="num">25° – 36,9° O</td></tr>
+              <tr><td>Buurlanden</td><td>Nederland, Duitsland, Luxemburg, Frankrijk</td><td>Libië, Soedan, Israël, Gazastrook</td></tr>
+              <tr><td>Water</td><td>Noordzee</td><td>Middellandse Zee, Rode Zee, Nijl, Suezkanaal</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="explain">
+      <article>
+        <h3>Afstand en richting</h3>
+        <p>Brussel – Caïro is ongeveer 3.200 km in vogelvlucht, richting zuidoost. Naar de badsteden aan de Rode Zee is het iets verder: Hurghada ligt op ± 3.600 km en Sharm el-Sheikh op ± 3.500 km.</p>
+      </article>
+      <article>
+        <h3>Hoe kom je er?</h3>
+        <p>Rechtstreekse vluchten vertrekken vanuit Brussels Airport naar Caïro (± 4u30). Chartervluchten vertrekken vanuit Brussel, Charleroi, Antwerpen en Oostende naar Hurghada, Marsa Alam en Sharm el-Sheikh (± 4u45 tot 5u15). Naar Luxor of Aswan vlieg je meestal met een overstap in Caïro.</p>
+      </article>
+      <article>
+        <h3>Het land zelf</h3>
+        <p>Ongeveer 95% van Egypte is woestijn. Bijna alle inwoners wonen in de smalle groene strook langs de Nijl en in de Nijldelta. Daarom liggen ook de meeste bezienswaardigheden dicht bij de rivier.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- TIJDZONE -->
+<section class="band" id="tijdzone">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">2 · Tijdzone</span>
+      <h2>Hoe laat is het in Egypte?</h2>
+      <p class="lead">Egypte loopt meestal <strong>1 uur voor</strong> op België. Omdat beide landen op andere dagen de klok verzetten, is het verschil enkele weken per jaar 0 uur, en soms even 2 uur.</p>
+    </div>
+
+    <div class="clocks" aria-live="polite">
+      <div class="clock">
+        <span class="place">Brussel, België</span>
+        <span class="time" id="clockBE">--:--</span>
+        <span class="zone" id="zoneBE">Midden-Europese Tijd</span>
+      </div>
+      <div class="clock">
+        <span class="place">Caïro, Egypte</span>
+        <span class="time" id="clockEG">--:--</span>
+        <span class="zone" id="zoneEG">Oost-Europese Tijd</span>
+      </div>
+      <div class="clock diff">
+        <span class="place">Tijdsverschil nu</span>
+        <span class="time" id="clockDiff">+1 u</span>
+        <span class="zone" id="diffText">Egypte loopt voor op België</span>
+      </div>
+    </div>
+
+    <div class="panel timeline">
+      <div class="tl-controls" role="group" aria-label="Kies een jaar">
+        <strong style="margin-right:6px">Tijdsverschil per dag in</strong>
+        <button type="button" id="y2026" data-year="2026" aria-pressed="true">2026</button>
+        <button type="button" id="y2027" data-year="2027" aria-pressed="false">2027</button>
+        <button type="button" id="y2028" data-year="2028" aria-pressed="false">2028</button>
+      </div>
+      <div class="tl-bar" id="tlBar" aria-hidden="true"></div>
+      <div class="tl-months" aria-hidden="true"><span>jan</span><span>feb</span><span>mrt</span><span>apr</span><span>mei</span><span>jun</span><span>jul</span><span>aug</span><span>sep</span><span>okt</span><span>nov</span><span>dec</span></div>
+      <div class="legend"><span class="l0">0 uur: zelfde tijd</span><span class="l1">Egypte +1 uur</span><span class="l2">Egypte +2 uur</span></div>
+      <ul class="changes" id="tlChanges">
+        <li><span class="num">29 maart 2026</span><span>België schakelt naar zomertijd (UTC+2)</span><span class="pill d0">0 uur</span></li>
+        <li><span class="num">24 april 2026</span><span>Egypte schakelt naar zomertijd (UTC+3)</span><span class="pill d1">+1 uur</span></li>
+        <li><span class="num">25 oktober 2026</span><span>België schakelt terug naar wintertijd (UTC+1)</span><span class="pill d2">+2 uur</span></li>
+        <li><span class="num">30 oktober 2026</span><span>Egypte schakelt terug naar wintertijd (UTC+2)</span><span class="pill d1">+1 uur</span></li>
+      </ul>
+    </div>
+
+    <div class="explain">
+      <article>
+        <h3>Twee tijdzones</h3>
+        <p>België gebruikt de <strong>Midden-Europese Tijd</strong>: UTC+1 in de winter, UTC+2 in de zomer. Egypte gebruikt de <strong>Oost-Europese Tijd</strong>: UTC+2 in de winter, UTC+3 in de zomer. Eén tijdzone verder naar het oosten betekent normaal één uur later.</p>
+      </article>
+      <article>
+        <h3>Waarom het verschil schuift</h3>
+        <p>België zet de klok vooruit op de laatste zondag van maart en terug op de laatste zondag van oktober. Egypte (sinds 2023 opnieuw met zomertijd) zet de klok vooruit op de laatste vrijdag van april en terug na de laatste donderdag van oktober. Tussen eind maart en eind april heeft België al zomertijd en Egypte nog niet: dan is het in beide landen even laat. Valt de Egyptische terugschakeling na de Belgische, dan is het verschil een paar dagen 2 uur.</p>
+      </article>
+      <article>
+        <h3>Zon en klok</h3>
+        <p>Caïro ligt op 31° oosterlengte; de zon staat er rond 11u55 (wintertijd) op haar hoogste punt. Brussel ligt op 4° oosterlengte en gebruikt eigenlijk een tijdzone die te ver naar het oosten ligt: daar staat de zon pas rond 12u45 het hoogst. Daarom voelt het in Egypte 's avonds vroeg donker aan: in december gaat de zon in Caïro onder rond 17u00 lokale tijd, dat is 16u00 in België.</p>
+      </article>
+      <article>
+        <h3>Daglengte</h3>
+        <p>Omdat Egypte dichter bij de evenaar ligt, schommelt de daglengte minder dan bij ons. In Caïro duurt een dag in december ± 10u15 en in juni ± 14u. In Brussel is dat ± 8u en ± 16u30. In de winter heb je in Egypte dus meer daglicht dan thuis.</p>
+      </article>
+      <article>
+        <h3>Jetlag?</h3>
+        <p>Met maximaal 2 uur verschil heb je geen jetlag. Wel staan veel tempels vroeg open (vanaf 6u of 7u) en is het middaguur het heetst: plan bezoeken 's morgens vroeg en laat in de namiddag, en rust rond de middag.</p>
+      </article>
+      <article>
+        <h3>Let op bij boekingen</h3>
+        <p>Vliegtickets tonen altijd de <strong>lokale tijd</strong> van vertrek en aankomst. Controleer in de weken rond eind maart, april en eind oktober extra goed je excursie- en transferuren. De Egyptische regering heeft de zomertijd in het verleden al vaker afgeschaft of verschoven; check dus vlak voor vertrek.</p>
+      </article>
+    </div>
+
+    <div class="example">
+      <strong>Rekenvoorbeeld (normaal verschil: +1 uur)</strong>
+      <table>
+        <tr><td>Vertrek Brussels Airport</td><td class="num">10u00 Belgische tijd</td></tr>
+        <tr><td>Vliegtijd</td><td class="num">4u30</td></tr>
+        <tr><td>Aankomst in Caïro</td><td class="num">14u30 Belgische tijd = <strong>15u30 lokale tijd</strong></td></tr>
+        <tr><td>Thuisfront bellen om 20u00 in België</td><td class="num">= 21u00 in Egypte</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- SEIZOEN -->
+<section class="band" id="seizoen">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">3 · Seizoenen</span>
+      <h2>Wanneer ga je best?</h2>
+      <p class="lead">Egypte ligt net als België op het noordelijk halfrond: als het bij ons winter is, is het daar ook winter. Maar de Egyptische winter voelt aan als een Belgische zomer, en de zomer is er bloedheet en kurkdroog.</p>
+    </div>
+
+    <div class="panel tablebox">
+      <table class="climate">
+        <caption class="hol" style="caption-side:bottom; text-align:left; padding-top:10px">Gemiddelde maximumtemperatuur overdag in °C en zeewatertemperatuur van de Rode Zee. Richtwaarden; 's nachts is het in de woestijn in de winter fris (8–12 °C).</caption>
+        <thead>
+          <tr><th>Maand</th><th>Brussel</th><th>Caïro</th><th>Luxor / Aswan</th><th>Hurghada</th><th>Zeewater</th><th>Schoolvakantie (Vl.)</th><th>Reisadvies</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>januari</td><td class="num">6</td><td class="num">19</td><td class="num">23</td><td class="num">21</td><td class="num">22</td><td class="hol">kerstvakantie (begin)</td><td><span class="pill ok">ideaal voor cultuur</span></td></tr>
+          <tr><td>februari</td><td class="num">7</td><td class="num">20</td><td class="num">25</td><td class="num">22</td><td class="num">21</td><td class="hol">krokusvakantie</td><td><span class="pill ok">ideaal voor cultuur</span></td></tr>
+          <tr><td>maart</td><td class="num">11</td><td class="num">24</td><td class="num">29</td><td class="num">24</td><td class="num">22</td><td class="hol">krokus (soms)</td><td><span class="pill ok">ideaal</span></td></tr>
+          <tr><td>april</td><td class="num">15</td><td class="num">28</td><td class="num">35</td><td class="num">28</td><td class="num">24</td><td class="hol">paasvakantie</td><td><span class="pill ok">ideaal, zandstormen mogelijk</span></td></tr>
+          <tr><td>mei</td><td class="num">18</td><td class="num">32</td><td class="num hot">39</td><td class="num">31</td><td class="num">26</td><td class="hol"></td><td><span class="pill mid">warm</span></td></tr>
+          <tr><td>juni</td><td class="num">21</td><td class="num">34</td><td class="num hot">41</td><td class="num">33</td><td class="num">27</td><td class="hol"></td><td><span class="pill bad">heet: kies de Rode Zee</span></td></tr>
+          <tr><td>juli</td><td class="num">23</td><td class="num">35</td><td class="num hot">41</td><td class="num">34</td><td class="num">28</td><td class="hol">zomervakantie</td><td><span class="pill bad">heet: kies de Rode Zee</span></td></tr>
+          <tr><td>augustus</td><td class="num">23</td><td class="num">35</td><td class="num hot">41</td><td class="num">34</td><td class="num">29</td><td class="hol">zomervakantie</td><td><span class="pill bad">heet: kies de Rode Zee</span></td></tr>
+          <tr><td>september</td><td class="num">19</td><td class="num">33</td><td class="num hot">39</td><td class="num">32</td><td class="num">28</td><td class="hol"></td><td><span class="pill mid">warm</span></td></tr>
+          <tr><td>oktober</td><td class="num">15</td><td class="num">30</td><td class="num">35</td><td class="num">30</td><td class="num">27</td><td class="hol">herfstvakantie (eind)</td><td><span class="pill ok">ideaal</span></td></tr>
+          <tr><td>november</td><td class="num">10</td><td class="num">25</td><td class="num">29</td><td class="num">26</td><td class="num">25</td><td class="hol">herfstvakantie (begin)</td><td><span class="pill ok">ideaal</span></td></tr>
+          <tr><td>december</td><td class="num">6</td><td class="num">20</td><td class="num">24</td><td class="num">23</td><td class="num">23</td><td class="hol">kerstvakantie</td><td><span class="pill ok">ideaal, druk en duurder</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="explain">
+      <article>
+        <h3>Winter (november – februari)</h3>
+        <p>Zonnig, 19 tot 25 °C overdag. De beste tijd voor Caïro, Luxor en Aswan en voor een Nijlcruise. 's Avonds en 's nachts is het fris: neem een trui mee. Rond Kerstmis en Nieuwjaar is het hoogseizoen, met hogere prijzen en meer drukte.</p>
+      </article>
+      <article>
+        <h3>Lente (maart – april)</h3>
+        <p>Aangenaam warm en ideaal voor de paasvakantie. Af en toe waait de <em>khamsin</em>, een hete woestijnwind met zand en stof. De Rode Zee is nog wat fris om lang te snorkelen (22–24 °C).</p>
+      </article>
+      <article>
+        <h3>Zomer (mei – september)</h3>
+        <p>In Luxor en Aswan wordt het 40 °C en meer, en er valt geen druppel regen. Met kinderen is dat zwaar voor tempelbezoek. Aan de Rode Zee blijft het met zeewind leefbaar (± 34 °C) en is het water heerlijk warm (28–29 °C).</p>
+      </article>
+      <article>
+        <h3>Ramadan</h3>
+        <p>Tijdens de vastenmaand eten en drinken veel Egyptenaren niet overdag. Hotels en toeristische zaken blijven open, maar openingsuren kunnen korter zijn. Ramadan schuift elk jaar ± 11 dagen naar voren: in 2027 valt hij ongeveer van 8 februari tot 9 maart.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- BEZIENSWAARDIGHEDEN -->
+<section class="band" id="bezienswaardigheden">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">4 · Bezienswaardigheden</span>
+      <h2>Wat kost het voor een gezin?</h2>
+      <p class="lead">Elke kaart toont de toegangsprijs per persoon en de totale kostprijs voor jouw gezin. Standaard rekenen we met 2 volwassenen en 2 kinderen (6–17 jaar). Pas het gezin hieronder aan; vink de bezienswaardigheden aan die je wil bezoeken en je ziet je totaal.</p>
+    </div>
+
+    <form class="panel calc" id="calcForm" onsubmit="return false">
+      <label for="nAdults">Volwassenen<input id="nAdults" type="number" min="0" max="12" value="2" inputmode="numeric"></label>
+      <label for="nKids">Kinderen 6–17 jaar<input id="nKids" type="number" min="0" max="12" value="2" inputmode="numeric"></label>
+      <label for="nToddlers">Kinderen onder 6<input id="nToddlers" type="number" min="0" max="12" value="0" inputmode="numeric"></label>
+      <label for="rate">Wisselkoers: 1 € = … EGP<input id="rate" type="number" min="1" step="0.5" value="55" inputmode="decimal"></label>
+    </form>
+
+    <div class="total" aria-live="polite">
+      <div>
+        <div style="font-size:.8rem; letter-spacing:.12em; text-transform:uppercase; opacity:.75">Jouw selectie</div>
+        <div id="selCount">0 bezienswaardigheden</div>
+      </div>
+      <div style="text-align:right">
+        <div class="big" id="selEUR">€ 0</div>
+        <small id="selEGP">0 EGP</small>
+      </div>
+    </div>
+
+    <div id="sightsRoot" class="stack" style="gap:40px"></div>
+
+    <p class="note">Toegangsprijzen zijn richtprijzen voor buitenlandse bezoekers (2026), afgerond, op basis van de officiële tarieven van het Egyptische ministerie van Toerisme en Oudheden. Kinderen onder 6 jaar mogen gratis binnen in musea en monumenten; kinderen vanaf 6 jaar en studenten met studentenkaart betalen meestal het halve tarief. Excursies (ballonvaart, cruise, snorkeltrip) zijn gemiddelde prijzen van lokale aanbieders. Vervoer, een gids en fooien zijn niet inbegrepen. Controleer de actuele prijzen op <a href="https://egymonuments.gov.eg" target="_blank" rel="noopener">egymonuments.gov.eg</a>; aan veel kassa's kan je alleen met bankkaart betalen.</p>
+  </div>
+</section>
+
+<!-- PRAKTISCH -->
+<section class="band" id="praktisch">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">5 · Praktisch</span>
+      <h2>Voor je vertrekt</h2>
+    </div>
+    <div class="practical">
+      <article><h3>Paspoort &amp; visum</h3><p>Je paspoort moet nog minstens 6 maanden geldig zijn na aankomst. Belgen hebben een visum nodig: vraag vooraf een e-visum aan (visa2egypt.gov.eg) of koop het bij aankomst op de luchthaven (± 25 USD per persoon). In Sharm el-Sheikh volstaat een gratis stempel als je in de Zuid-Sinaï blijft.</p></article>
+      <article><h3>Geld</h3><p>Egyptisch pond (EGP of LE). Richtkoers ± 55 EGP voor 1 €. Bankkaarten werken in hotels en aan veel kassa's; houd kleine biljetten bij voor fooien (<em>bakshish</em>), die in Egypte heel gebruikelijk zijn.</p></article>
+      <article><h3>Elektriciteit</h3><p>220 volt met dezelfde stekkers als in België (type C en F). Een adapter is niet nodig.</p></article>
+      <article><h3>Gezondheid</h3><p>Drink geen kraantjeswater, ook niet in ijsblokjes. Neem zonnecrème, een hoed en voldoende water mee. Laat je vaccinaties (zoals hepatitis A en tetanus) checken bij je huisarts of een reiskliniek.</p></article>
+      <article><h3>Kleding &amp; gewoonten</h3><p>Egypte is overwegend islamitisch. Bedek schouders en knieën bij moskeeën en in steden; aan het strand van een resort kan alles. Vraag toestemming voor je mensen fotografeert.</p></article>
+      <article><h3>Veiligheid &amp; nummers</h3><p>Lees het reisadvies van FOD Buitenlandse Zaken op diplomatie.belgium.be en registreer je reis via Travellers Online. Noodnummers: toeristische politie <span class="mono">126</span>, politie <span class="mono">122</span>, ambulance <span class="mono">123</span>. De Belgische ambassade zit in Caïro.</p></article>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Reisbrochure Egypte · alle prijzen, temperaturen en data zijn richtwaarden. De klokken en de tijdlijn worden live berekend met de officiële tijdzone-informatie van je browser (Europe/Brussels en Africa/Cairo).</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var TZ_BE = "Europe/Brussels", TZ_EG = "Africa/Cairo";
+  var MONTHS = ["januari","februari","maart","april","mei","juni","juli","augustus","september","oktober","november","december"];
+
+  function offsetMin(tz, d) {
+    var p = {};
+    new Intl.DateTimeFormat("en-US", { timeZone: tz, hourCycle: "h23", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit" })
+      .formatToParts(d).forEach(function (x) { p[x.type] = x.value; });
+    var asUTC = Date.UTC(+p.year, +p.month - 1, +p.day, +p.hour % 24, +p.minute, +p.second);
+    return Math.round((asUTC - Math.floor(d.getTime() / 1000) * 1000) / 60000);
+  }
+  function diffHours(d) { return (offsetMin(TZ_EG, d) - offsetMin(TZ_BE, d)) / 60; }
+  function fmtTime(tz, d) {
+    return new Intl.DateTimeFormat("nl-BE", { timeZone: tz, hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).format(d);
+  }
+  function sign(n) { return (n > 0 ? "+" : n < 0 ? "−" : "") + Math.abs(n); }
+
+  // Klokken
+  function tick() {
+    var now = new Date();
+    var be = fmtTime(TZ_BE, now).split(":"), eg = fmtTime(TZ_EG, now).split(":");
+    document.getElementById("clockBE").innerHTML = be[0] + '<span class="colon">:</span>' + be[1];
+    document.getElementById("clockEG").innerHTML = eg[0] + '<span class="colon">:</span>' + eg[1];
+    var oBE = offsetMin(TZ_BE, now) / 60, oEG = offsetMin(TZ_EG, now) / 60;
+    document.getElementById("zoneBE").textContent = (oBE === 2 ? "Midden-Europese zomertijd" : "Midden-Europese wintertijd") + " · UTC+" + oBE;
+    document.getElementById("zoneEG").textContent = (oEG === 3 ? "Oost-Europese zomertijd" : "Oost-Europese wintertijd") + " · UTC+" + oEG;
+    var d = oEG - oBE;
+    document.getElementById("clockDiff").textContent = sign(d) + " u";
+    document.getElementById("diffText").textContent = d === 0 ? "Op dit moment is het in beide landen even laat" : d > 0 ? "Egypte loopt " + d + " uur voor op België" : "Egypte loopt " + (-d) + " uur achter op België";
+    document.getElementById("factDiff").textContent = (d === 0 ? "0 uur" : sign(d) + " uur") + " (nu)";
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  // Tijdlijn per jaar
+  function buildYear(year) {
+    var days = [];
+    for (var t = Date.UTC(year, 0, 1, 12); new Date(t).getUTCFullYear() === year; t += 86400000) {
+      var d = new Date(t);
+      days.push({ date: d, diff: diffHours(d), be: offsetMin(TZ_BE, d), eg: offsetMin(TZ_EG, d) });
+    }
+    var bar = document.getElementById("tlBar");
+    bar.innerHTML = "";
+    var segStart = 0;
+    for (var i = 1; i <= days.length; i++) {
+      if (i === days.length || days[i].diff !== days[segStart].diff) {
+        var len = i - segStart, dv = days[segStart].diff;
+        var seg = document.createElement("div");
+        seg.className = "tl-seg d" + Math.max(0, Math.min(2, dv));
+        seg.style.flex = len + " 0 0";
+        seg.textContent = len >= 14 ? (dv === 0 ? "0 u" : sign(dv) + " u") : "";
+        seg.title = len + " dagen: " + (dv === 0 ? "zelfde tijd" : "Egypte " + sign(dv) + " uur");
+        bar.appendChild(seg);
+        segStart = i;
+      }
+    }
+    var list = document.getElementById("tlChanges");
+    list.innerHTML = "";
+    for (var j = 1; j < days.length; j++) {
+      var a = days[j - 1], b = days[j];
+      if (a.be === b.be && a.eg === b.eg) continue;
+      var who = [];
+      if (a.be !== b.be) who.push("België schakelt " + (b.be > a.be ? "naar zomertijd (UTC+" : "terug naar wintertijd (UTC+") + b.be / 60 + ")");
+      if (a.eg !== b.eg) who.push("Egypte schakelt " + (b.eg > a.eg ? "naar zomertijd (UTC+" : "terug naar wintertijd (UTC+") + b.eg / 60 + ")");
+      var li = document.createElement("li");
+      var dt = b.date;
+      li.innerHTML = '<span class="num">' + dt.getUTCDate() + " " + MONTHS[dt.getUTCMonth()] + " " + year + "</span><span>" + who.join(" en ") + "</span>" +
+        '<span class="pill d' + Math.max(0, Math.min(2, b.diff)) + '">' + (b.diff === 0 ? "0 uur" : sign(b.diff) + " uur") + "</span>";
+      list.appendChild(li);
+    }
+    if (!list.children.length) list.innerHTML = "<li><span></span><span>Geen klokwijzigingen gevonden in dit jaar.</span><span></span></li>";
+  }
+  var yearBtns = document.querySelectorAll(".tl-controls button");
+  yearBtns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      yearBtns.forEach(function (b) { b.setAttribute("aria-pressed", String(b === btn)); });
+      buildYear(+btn.dataset.year);
+    });
+  });
+  try { buildYear(2026); } catch (e) { /* statische lijst blijft staan */ }
+
+  // Bezienswaardigheden: prijzen per persoon. cur = valuta van de prijs; tod = prijs kind onder 6 (null = niet toegelaten)
+  var REGIONS = [
+    { name: "Caïro & Gizeh", sub: "de hoofdstad en de piramiden", items: [
+      { id: "giza", tag: "Must-see", name: "Piramiden van Gizeh & Sfinx", text: "Het enige overgebleven wereldwonder van de oudheid. Toegang tot het plateau met de drie grote piramiden en de Sfinx. Ga vroeg (opening 7u) tegen hitte en drukte.", cur: "EGP", adult: 700, kid: 350, tod: 0, on: true },
+      { id: "khufu", tag: "Extra", name: "Binnen in de Grote Piramide (Cheops)", text: "Een steile, smalle gang naar de grafkamer. Niet geschikt voor wie last heeft van claustrofobie; leuk voor oudere kinderen.", cur: "EGP", adult: 1500, kid: 750, tod: 0, on: false },
+      { id: "gem", tag: "Must-see", name: "Grand Egyptian Museum (GEM)", text: "Het grootste archeologische museum ter wereld, vlak bij de piramiden, met de volledige schat van Toetanchamon. Reken op een halve dag.", cur: "EGP", adult: 1700, kid: 850, tod: 0, on: true },
+      { id: "tahrir", name: "Egyptisch Museum (Tahrirplein)", text: "Het historische museum in het centrum van Caïro, met mummies en duizenden beelden in een sfeervol oud gebouw.", cur: "EGP", adult: 550, kid: 275, tod: 0, on: false },
+      { id: "saqqara", name: "Sakkara: trappenpiramide van Djoser", text: "De oudste piramide van Egypte (± 4.700 jaar), 30 km ten zuiden van Gizeh, met beschilderde graven en veel minder drukte.", cur: "EGP", adult: 600, kid: 300, tod: 0, on: false },
+      { id: "citadel", name: "Citadel van Saladin & Khan el-Khalili", text: "Middeleeuwse burcht met de Albastmoskee en uitzicht over de stad. Daarna slenteren door de bazaar van Khan el-Khalili (gratis).", cur: "EGP", adult: 550, kid: 275, tod: 0, on: false }
+    ]},
+    { name: "Luxor", sub: "het oude Thebe, openluchtmuseum aan de Nijl", items: [
+      { id: "karnak", tag: "Must-see", name: "Tempelcomplex van Karnak", text: "Het grootste tempelcomplex ter wereld, met de zuilenzaal van 134 reusachtige zuilen.", cur: "EGP", adult: 600, kid: 300, tod: 0, on: true },
+      { id: "luxortemple", name: "Tempel van Luxor", text: "Midden in de stad; 's avonds verlicht en het mooist bij zonsondergang.", cur: "EGP", adult: 500, kid: 250, tod: 0, on: false },
+      { id: "valley", tag: "Must-see", name: "Vallei der Koningen", text: "Ticket voor 3 koningsgraven met kleurrijke muurschilderingen. Het graf van Toetanchamon kost extra (± 700 EGP volwassene).", cur: "EGP", adult: 750, kid: 375, tod: 0, on: true },
+      { id: "hatshepsut", name: "Tempel van Hatsjepsoet", text: "Terrastempel van de vrouwelijke farao, uitgehouwen tegen de rotswand van Deir el-Bahari.", cur: "EGP", adult: 440, kid: 220, tod: 0, on: false },
+      { id: "balloon", tag: "Belevenis", name: "Ballonvaart bij zonsopgang", text: "Ongeveer 45 minuten zweven boven de Westoever en de tempels. Ophaling rond 4u30. Kinderen vanaf 6 jaar.", cur: "EUR", adult: 75, kid: 60, tod: null, on: false }
+    ]},
+    { name: "Aswan & de Nijl", sub: "Nubië en het zuiden", items: [
+      { id: "cruise", tag: "Meerdaags", name: "Nijlcruise Luxor – Aswan (4 nachten)", text: "Varend hotel met volpension; legt aan bij de tempels van Edfu en Kom Ombo. Prijs per persoon in een middenklasse-schip, toegangen niet inbegrepen.", cur: "EUR", adult: 550, kid: 275, tod: 0, on: false },
+      { id: "abusimbel", tag: "Must-see", name: "Tempels van Abu Simbel", text: "De kolossale rotstempels van Ramses II, in de jaren 60 steen voor steen verplaatst. 3,5 uur rijden vanaf Aswan (vertrek ± 4u) of een korte vlucht; vervoer kost ± 45 € p.p. extra.", cur: "EGP", adult: 765, kid: 385, tod: 0, on: false },
+      { id: "philae", name: "Philae-tempel", text: "De tempel van Isis op een eiland, alleen bereikbaar per bootje (± 300 EGP per boot, te betalen ter plaatse).", cur: "EGP", adult: 550, kid: 275, tod: 0, on: false }
+    ]},
+    { name: "Rode Zee", sub: "Hurghada, Marsa Alam en Sharm el-Sheikh", items: [
+      { id: "snorkel", tag: "Gezinsfavoriet", name: "Snorkeltrip naar de koraalriffen", text: "Dagtocht per boot met 2 snorkelstops, lunch en materiaal. Je ziet papegaaivissen, clownvissen en met wat geluk dolfijnen.", cur: "EUR", adult: 35, kid: 20, tod: 0, on: true },
+      { id: "desert", name: "Woestijnsafari met quad en bedoeïenendorp", text: "Halve dag in de woestijn achter Hurghada met quad (kinderen achterop), kameelrit en bedoeïenendiner onder de sterren.", cur: "EUR", adult: 40, kid: 25, tod: 0, on: false }
+    ]}
+  ];
+
+  var root = document.getElementById("sightsRoot");
+  REGIONS.forEach(function (r) {
+    var sec = document.createElement("div");
+    sec.className = "region";
+    sec.innerHTML = "<h3>" + r.name + " <span>" + r.sub + "</span></h3>";
+    var grid = document.createElement("div");
+    grid.className = "sights";
+    r.items.forEach(function (it) {
+      var art = document.createElement("article");
+      art.className = "sight";
+      art.id = "s-" + it.id;
+      var unit = it.cur === "EUR" ? "€ " : "", after = it.cur === "EGP" ? " EGP" : "";
+      art.innerHTML =
+        "<header><div>" + (it.tag ? '<div class="tag">' + it.tag + "</div>" : "") + "<h4>" + it.name + "</h4></div>" +
+        '<label class="add" for="c-' + it.id + '"><input type="checkbox" id="c-' + it.id + '"' + (it.on ? " checked" : "") + "> in mijn reis</label></header>" +
+        "<p>" + it.text + "</p>" +
+        '<dl class="prices">' +
+          "<dt>Volwassene</dt><dd>" + unit + it.adult.toLocaleString("nl-BE") + after + "</dd>" +
+          "<dt>Kind 6–17 jaar</dt><dd>" + unit + it.kid.toLocaleString("nl-BE") + after + "</dd>" +
+          "<dt>Kind onder 6</dt><dd>" + (it.tod === null ? "niet toegelaten" : it.tod === 0 ? "gratis" : unit + it.tod + after) + "</dd>" +
+        "</dl>" +
+        '<div class="family"><span>Jouw gezin</span><div><strong data-eur></strong><em data-egp></em></div></div>';
+      grid.appendChild(art);
+      it.el = art;
+      art.querySelector("input").addEventListener("change", function (e) { it.on = e.target.checked; recalc(); });
+    });
+    sec.appendChild(grid);
+    root.appendChild(sec);
+  });
+
+  function num(id, def) { var v = parseFloat(document.getElementById(id).value); return isFinite(v) && v >= 0 ? v : def; }
+  function eur(n) { return "€ " + Math.round(n).toLocaleString("nl-BE"); }
+  function recalc() {
+    var A = num("nAdults", 0), K = num("nKids", 0), T = num("nToddlers", 0), rate = num("rate", 55) || 55;
+    var totalEUR = 0, count = 0;
+    REGIONS.forEach(function (r) {
+      r.items.forEach(function (it) {
+        var local = A * it.adult + K * it.kid + T * (it.tod || 0);
+        var inEUR = it.cur === "EUR" ? local : local / rate;
+        var inEGP = it.cur === "EGP" ? local : local * rate;
+        it.el.querySelector("[data-eur]").textContent = eur(inEUR);
+        it.el.querySelector("[data-egp]").textContent = Math.round(inEGP).toLocaleString("nl-BE") + " EGP" + (it.tod === null && T > 0 ? " · kleuters niet toegelaten" : "");
+        it.el.classList.toggle("on", !!it.on);
+        if (it.on) { totalEUR += inEUR; count++; }
+      });
+    });
+    document.getElementById("selEUR").textContent = eur(totalEUR);
+    document.getElementById("selEGP").textContent = Math.round(totalEUR * rate).toLocaleString("nl-BE") + " EGP · " + A + " volw. + " + K + " kind. 6–17" + (T ? " + " + T + " onder 6" : "");
+    document.getElementById("selCount").textContent = count + (count === 1 ? " bezienswaardigheid" : " bezienswaardigheden");
+  }
+  ["nAdults", "nKids", "nToddlers", "rate"].forEach(function (id) { document.getElementById(id).addEventListener("input", recalc); });
+  recalc();
+})();
+</script>
